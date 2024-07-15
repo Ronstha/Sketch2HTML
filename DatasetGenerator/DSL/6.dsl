@@ -1,0 +1,47 @@
+header{
+	text
+}container{
+	row{
+		div-3{
+			input
+			text
+		}
+		div-6{
+			button
+			paragraph
+			carousel
+		}
+		div-3{
+			text
+			input
+		}
+	}
+	row{
+		div-6{
+			carousel
+			paragraph
+		}
+		div-3{
+			input
+			button
+		}
+	}
+}footer{
+	row{
+		div-3{
+			image
+			paragraph
+		}
+		div-6{
+			button
+			card{
+				image
+				paragraph
+			}
+		}
+		div-3{
+			image
+			paragraph
+		}
+	}
+}

@@ -1,0 +1,38 @@
+header{
+	input
+}container{
+	row{
+		div-3{
+			card{
+				button
+				input
+			}
+			input
+		}
+		div-3{
+			card{
+				input
+				input
+			}
+			text
+		}
+	}
+	row{
+		div-3{
+			text
+			text
+		}
+		div-6{
+			button
+			image
+			card{
+				paragraph
+				text
+			}
+		}
+		div-3{
+			paragraph
+			text
+		}
+	}
+}
