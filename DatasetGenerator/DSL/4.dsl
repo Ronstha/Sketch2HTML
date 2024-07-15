@@ -1,60 +1,34 @@
 header{
-	image
-}container{
-	row{
-		div-6{
-			text
-			button
-			button
+	flex-sb{
+		logodiv{
+			image
 		}
-		div-6{
-			paragraph
-			paragraph
+		nav{
+			navlink
+			navlink
+			navlink
 		}
 	}
+}
+container{
 	row{
-		div-9{
-			input
-			paragraph
-		}
-	}
-	row{
-		div-12{
+		div-3{
+			card{
+				button-c
+				input
+			}
 			card{
 				paragraph
-				input
+				text
 			}
-			image
 		}
-	}
-	row{
 		div-3{
-			input
+			button
 			paragraph
-		}
-		div-3{
-			input
-			input
 		}
 		div-6{
-			text
-			input
-			text
-		}
-	}
-}footer{
-	row{
-		div-3{
 			image
-			input
-		}
-		div-9{
-			input
-			paragraph
-			card{
-				image
-				input
-			}
+			image
 		}
 	}
 }

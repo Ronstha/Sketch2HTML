@@ -1,68 +1,59 @@
 header{
-	image
-	text
-}container{
+	flex-c{
+
+		nav{
+			navlink
+			navlink
+			navlink
+			navlink
+			navlink
+		}
+	}
+}
+container{
 	row{
-		div-3{
-			input
-			input
-		}
-		div-6{
-			paragraph
-			card{
-				paragraph
-				paragraph
-			}
-			paragraph
-		}
-		div-3{
-			button
-			card{
-				paragraph
-				paragraph
-			}
+		div-12{
+			table
+			carousel
 		}
 	}
 	row{
-		div-6{
-			button
+		div-3{
 			button
 			button
 		}
 		div-6{
-			card{
-				input
+			flex-r{
+				button
+				text
 				button
 			}
+			image
+			text
+		}
+		div-3{
+			button
+			button
+		}
+	}
+	row{
+		div-6{
 			carousel
+			text-c
+			text
+		}
+		div-6{
 			paragraph
+			text
+			carousel
 		}
 	}
+}
+footer{
 	row{
-		div-3{
-			button
+		div-12{
+			table
 			text
-		}
-		div-6{
-			image
-			text
-			input
-		}
-		div-3{
-			input
-			button
-		}
-	}
-	row{
-		div-3{
-			input
-			image
-		}
-		div-6{
-			text
-			card{
-				text
-			}
 		}
 	}
 }

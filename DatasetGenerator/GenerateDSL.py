@@ -34,6 +34,25 @@ def generate(node,level):
                 tokensCount+=1
        return True
     
+    elif node.key=='flex' and node.parent.key=='header':
+        nodes=[]
+        if random.random()>0.3:
+            nodes.append('nav')
+            if random.random()>0.8:
+                nodes.append('nav')
+        if random.random()<0.9 or len(nodes)==0: 
+            if random.random()>0.8:
+                nodes.append('logodiv')
+            else:
+                nodes.insert(0,'logodiv')
+        for el in nodes:
+            childNode=DSLNode(el,node)
+            res=generate(childNode,level+1)
+            if res:
+                node.add(childNode)
+                tokensCount+=1
+        return True
+    
     a = rule.get('min')
     b = rule.get('max')
     

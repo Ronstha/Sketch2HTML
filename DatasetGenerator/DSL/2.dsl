@@ -1,34 +1,24 @@
 container{
 	row{
-		div-3{
-			card{
-				input
-				button
-			}
-			text
-		}
-		div-9{
-			carousel
-			button
-			paragraph
+		div-12{
+			table
+			text-c
 		}
 	}
-}footer{
+}
+footer{
 	row{
 		div-3{
-			text
+			button-c
 			image
 		}
-		div-6{
-			text
-			card{
+		div-9{
+			flex-sb{
+				text-c
 				image
-				paragraph
 			}
-		}
-		div-3{
-			input
-			text
+			carousel
+			paragraph
 		}
 	}
 }

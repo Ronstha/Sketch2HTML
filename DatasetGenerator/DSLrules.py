@@ -1,14 +1,16 @@
 graph={
     'root':['header','container','footer'],
-    'header':['image','nav','text','input','button'],
-    'nav':['nav-link'],
+    'header':['flex'],
+    'nav':['navlink'],
+    'logodiv':['image','text'],
     'container':['row'],
     'row':['div-3','div-6','div-9','div-12'],
-    'div-3':['text','paragraph','image','card','input','button'],
-    'div-6':['text','paragraph','image','card','carousel','input','button'],
-    'div-9':['text','paragraph','image','card','carousel','input','table','button'],
-    'div-12':['text','paragraph','image','card','carousel','input','table','button'],
-    'card':['text','paragraph','image','input','button'],
+    'div-3':['text','paragraph','image','card','input','button','flex'],
+    'div-6':['text','paragraph','image','card','carousel','input','button','flex'],
+    'div-9':['text','paragraph','image','card','carousel','input','table','button','flex'],
+    'div-12':['text','paragraph','image','card','carousel','input','table','button','flex'],
+    'flex':['text','image','button'],
+    'card':['text','paragraph','image','input','button','flex'],
     'footer':['row']
 }
 
@@ -29,15 +31,18 @@ divCombinations2=[
 
 rules = {
     'root': {'inOrder': True},
-    'header':{'min':1,'max':4},
+    'logodiv': {'inOrder': True},
+    'header':{'min':1,'max':1},
     'container': {'min': 1, 'max':4 },
-    'row': {'combinations':True,'0': divCombinations,'1':divCombinations2,'proba':0.9},
+    'row': {'combinations':True,'0': divCombinations,'1':divCombinations2,'proba':0.8},
     'div-3': {'min': 2, 'max': 2},
     'div-6': {'min': 2, 'max': 3},
     'div-9': {'min': 2, 'max': 3},
     'div-12': {'min': 2, 'max': 2},
-    'card': {'min': 2, 'max': 2},
+    'card': {'min': 2, 'max': 3},
     'footer': {'min': 1, 'max': 1},
-    'nav':{'min': 1, 'max': 5}
-    
+    'nav':{'min': 1, 'max': 5},
+    'flex':{'min':2,'max':4},
+
+
 }

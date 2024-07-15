@@ -1,52 +1,54 @@
 container{
 	row{
-		div-6{
-			text
+		div-3{
+			flex-c{
+				text
+				text-c
+				button-c
+				image
+			}
+			image
+		}
+		div-9{
+			card{
+				image
+				input
+			}
 			paragraph
 		}
-		div-6{
-			card{
-				input
-				text
-			}
-			input
-		}
 	}
+}
+footer{
 	row{
 		div-3{
 			input
-			text
+			text-c
+		}
+		div-3{
+			card{
+				flex{
+					button
+					button
+					button
+					button
+				}
+				input
+				input
+			}
+			image
 		}
 		div-6{
 			carousel
+			card{
+				button
+				flex-sb{
+					text
+					image
+					image
+				}
+				input
+			}
 			paragraph
-		}
-		div-3{
-			text
-			image
-		}
-	}
-	row{
-		div-3{
-			image
-			image
-		}
-		div-3{
-			image
-			paragraph
-		}
-	}
-}footer{
-	row{
-		div-6{
-			paragraph
-			paragraph
-			paragraph
-		}
-		div-6{
-			text
-			paragraph
-			image
 		}
 	}
 }

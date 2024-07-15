@@ -1,68 +1,68 @@
+header{
+	flex-sb{
+		logodiv{
+			image
+		}
+	}
+}
 container{
 	row{
 		div-3{
+			button
 			card{
+				button
+				paragraph
+			}
+		}
+		div-3{
+			card{
+				flex{
+					image
+					text
+				}
+				button-c
+			}
+			paragraph
+		}
+		div-6{
+			card{
+				button
+				text-c
 				input
+			}
+			button-c
+			paragraph
+		}
+	}
+	row{
+		div-6{
+			text-c
+			image
+		}
+		div-6{
+			card{
+				paragraph
+				button
+				button
+			}
+			image
+			paragraph
+		}
+	}
+	row{
+		div-6{
+			carousel
+			button
+			flex-c{
+				button
+				image
+				image
 				text
 			}
-			input
-		}
-		div-6{
-			paragraph
-			carousel
-			paragraph
-		}
-		div-3{
-			button
-			button
-		}
-	}
-	row{
-		div-3{
-			button
-			button
-		}
-		div-3{
-			image
-			image
 		}
 		div-6{
 			text
-			paragraph
-			card{
-				image
-				image
-			}
-		}
-	}
-	row{
-		div-3{
 			image
-			text
-		}
-		div-9{
-			carousel
-			image
-		}
-	}
-	row{
-		div-6{
-			paragraph
-			carousel
-		}
-		div-6{
-			input
-			carousel
-		}
-	}
-}footer{
-	row{
-		div-3{
-			paragraph
-			input
-		}
-		div-9{
-			text
 		}
 	}
 }
