@@ -1,0 +1,54 @@
+container{
+	row{
+		div-3{
+			flex-c{
+				text
+				text-c
+				button-c
+				image
+			}
+			image
+		}
+		div-9{
+			card{
+				image
+				input
+			}
+			paragraph
+		}
+	}
+}
+footer{
+	row{
+		div-3{
+			input
+			text-c
+		}
+		div-3{
+			card{
+				flex{
+					button
+					button
+					button
+					button
+				}
+				input
+				input
+			}
+			image
+		}
+		div-6{
+			carousel
+			card{
+				button
+				flex-sb{
+					text
+					image
+					image
+				}
+				input
+			}
+			paragraph
+		}
+	}
+}

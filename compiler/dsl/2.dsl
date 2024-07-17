@@ -1,0 +1,24 @@
+container{
+	row{
+		div-12{
+			table
+			text-c
+		}
+	}
+}
+footer{
+	row{
+		div-3{
+			button-c
+			image
+		}
+		div-9{
+			flex-sb{
+				text-c
+				image
+			}
+			carousel
+			paragraph
+		}
+	}
+}
