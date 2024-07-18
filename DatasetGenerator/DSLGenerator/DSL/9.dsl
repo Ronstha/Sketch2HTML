@@ -1,0 +1,50 @@
+header{
+	flex-c{
+		logodiv{
+			image
+			text
+		}
+		nav{
+			navlink
+			navlink
+			navlink
+			navlink
+			navlink
+		}
+	}
+}
+container{
+	row{
+		div-3{
+			text
+			card{
+				image
+				text-c
+			}
+		}
+		div-6{
+			input
+			paragraph
+			image
+		}
+		div-3{
+			input
+			button
+		}
+	}
+}
+footer{
+	row{
+		div-6{
+			input
+			image
+		}
+		div-3{
+			image
+			flex-c{
+				text
+				text
+			}
+		}
+	}
+}

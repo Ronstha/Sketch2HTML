@@ -1,0 +1,45 @@
+header{
+	flex-r{
+		logodiv{
+			text
+		}
+		nav{
+			navlink
+			navlink
+			navlink
+		}
+	}
+}
+container{
+	row{
+		div-12{
+			table
+			flex{
+				text
+				button
+			}
+		}
+	}
+	row{
+		div-3{
+			text-c
+			button
+		}
+		div-6{
+			card{
+				text
+				image
+				paragraph
+			}
+			carousel
+		}
+		div-3{
+			input
+			flex-sb{
+				button
+				text
+				text
+			}
+		}
+	}
+}

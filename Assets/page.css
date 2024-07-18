@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+  .root {
+    background-color: #000000;
+    padding: 10px;
+    width: 1200px;
+    /* min-height: 100vh; */
+    height: 2200px;
+  }
+  
+  .header {
+    background-color: rgb(0,255,255);
+    padding: 0px 17px;
+    margin: 10px;
+    height: 77px;
+  }
+  
+  .nav {
+    /* background-color: #32cd32; */
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navlink {
+    background-color: rgb(255,0,0);
+    padding: 5px;
+    margin: 5px;
+    display: block;
+    width: 74px;
+    height: 18px;
+  }
+  
+  .logodiv {
+    /* background-color: #ff4500; */
+    /* padding: 10px; */
+    /* margin: 10px; */
+    display: flex;
+    align-items: center;
+    /* height: 62px; */
+    position: relative;
+  }
+  
+  .container {
+    /* background-color: #8a2be2; */
+    padding: 15px 2px;
+    /* margin: 10px; */
+  }
+  
+  .row {
+    /* background-color: #20b2aa; */
+    /* padding: 10px; */
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .div-3 {
+    /* background-color: #fa8072; */
+    width: 25%;
+    padding: 4px;
+    /* margin: 5px; */
+  }
+  
+  .div-6 {
+    /* background-color: #dda0dd; */
+    width: 50%;
+    padding: 4px;
+    /* margin: 5px; */
+  }
+  
+  .div-9 {
+    width: 75%;
+    padding: 4px;
+    /* margin: 5px; */
+  }
+  
+  .div-12 {
+    /* background-color: #48d1cc; */
+    width: 100%;
+    padding: 4px;
+    /* margin: 5px; */
+  }
+  .flex .image,
+  .flex-sb .image,
+  .flex-c .image,
+  .flex-r .image{
+   max-height: 60px;
+   max-width: 30%;
+  }
+  .flex,
+  .flex-sb,
+  .flex-c,
+  .flex-r {
+    /* background-color: #ff6347; */
+    /* padding: 10px; */
+    /* margin: 10px; */
+    display: flex;
+    align-items: center;
+    /* height: max-content; */
+  }
+
+.header > div {
+    height: 100%;
+}
+  
+  .flex-sb {
+    justify-content: space-between;
+    /* display: flex; */
+  }
+  .flex-c {
+    justify-content: center;
+  }
+  .flex-r {
+    justify-content: flex-end;
+  }
+  
+
+  .text {
+   
+    
+  }
+  .text,.text-c,.text-r{
+    background-color: rgb(255,255,255);
+    width: 81px;
+    height: 19px;
+    padding: 5px;
+    margin: 5px;
+    max-width: 90%;
+  }
+  .text-c {
+
+    text-align: center;
+  }
+  
+  .text-r {
+
+    text-align: right;
+  }
+  
+  .paragraph {
+    background-color: rgb(193,188,192);
+    padding: 7px;
+    margin: 8px;
+    max-width: 90%;
+  }
+  
+  .image {
+    background-color: rgb(0,0,255);
+    /* padding: 10px; */
+    margin: 10px;
+    display: block;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 350px;
+    /* min-height: 186px; */
+  }
+
+.logodiv .image {
+    height: 58px;
+    min-width: auto;
+    max-width: 100%;
+    margin-right: 11px;
+    aspect-ratio: 1 !important;
+}
+  
+  .card {
+    background-color: rgb(0,128,128);
+    padding: 25px 12px;
+    margin: 10px 0px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .input {
+    background-color: rgb(255,159,252);
+    padding: 5px;
+    margin: 5px;
+    display: block;
+    height: 32px;
+    max-width: 90%;
+    width: 161px;
+  }
+  button,input{
+    outline:none;
+    border: none;
+  }
+  .button,.button-c,.button-r{
+    background-color: rgb(19,247,47);
+    padding: 10px;
+    margin: 5px;
+    display: block;
+    margin-bottom: 9px;
+    width: 80px;
+    height: 28px;
+    max-width: 90%;
+  }
+  .button-c {
+   
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  
+  .button-r {
+
+    margin-left: auto;
+  }
+button.button {
+    min-width: 82px;
+    min-height: 33px;
+}
+  
+  
+  
+  .footer {
+    background-color: rgb(154,128,235);
+    padding: 15px 17px;
+    /* margin: 10px; */
+  }
+  
+  /* Hide all text */
+  * {
+    color: transparent;
+    font-size: 0;
+    position: relative;
+  }
+  
+  .table{
+    display: block;
+    margin: 10px auto;
+    padding: 10px 4px;
+    background: rgb(165,42,42);
+    max-height: 200px;
+  }
+  .carousel{
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    background: rgb(255,165,0);
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 250px;
+  }

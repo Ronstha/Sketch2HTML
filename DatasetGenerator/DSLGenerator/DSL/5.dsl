@@ -1,0 +1,36 @@
+header{
+	flex-sb{
+		logodiv{
+			image
+			text
+		}
+	}
+}
+container{
+	row{
+		div-3{
+			paragraph
+			flex-c{
+				text
+				text
+			}
+		}
+		div-6{
+			paragraph
+			card{
+				button-c
+				image
+				flex-sb{
+					button
+					image
+					image
+				}
+			}
+			carousel
+		}
+		div-3{
+			input
+			text
+		}
+	}
+}

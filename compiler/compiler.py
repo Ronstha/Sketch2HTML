@@ -22,7 +22,8 @@ class Node:
         
         # Return a default representation if no mapping exists
         if not element_mapping:
-            return f"<{self.name}>{self.content}</{self.name}>"
+            return f"<{self.name}></{self.name}>"
+            # return f"<{self.name}>{self.content}</{self.name}>"
 
         # Replace attributes in the mapping
         result = element_mapping
@@ -48,7 +49,9 @@ class Compiler:
         try:
             root = self.parse_dsl(input_dsl)
             html_content = root.render(self.dsl_mapping)
-            
+            html_content+="<script src='./../../assets/script.js'></script>"
+            html_content=html_content.replace('<img src=\"placeholder.jpg\"  class=\"image\">','<div class=\'image\'></div>')
+
             full_html = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +60,8 @@ class Compiler:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generated Page</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../assets/page.css">
+    
 </head>
 <body>
 {html_content}
@@ -76,17 +81,16 @@ class Compiler:
         root = Node("root")
         stack = [root]
         
-        for line_number, line in enumerate(lines, 1):
-            line = line.strip()
-            if not line:
+        for line_number, line in enumerate(lines, 1): 
+            if not line.strip():
                 continue
 
             try:
                 indent = len(line) - len(line.lstrip())
                 line = line.strip()
-
+            
                 # Adjust the stack to match the current indentation level
-                while indent < len(stack) - 1:
+                while indent < len(stack) - 2:
                     stack.pop()
 
                 if line.endswith('{'):
@@ -244,10 +248,10 @@ def process_dsl_files(dsl_folder, output_folder, dsl_mapping_file_path):
         os.makedirs(output_folder)
 
     # Generate CSS file
-    css_path = os.path.join(output_folder, "styles.css")
-    css_content = generate_css()
-    with open(css_path, 'w') as css_file:
-        css_file.write(css_content)
+    # css_path = os.path.join(output_folder, "styles.css")
+    # css_content = generate_css()
+    # with open(css_path, 'w') as css_file:
+    #     css_file.write(css_content)
 
     # Process each .dsl file
     for filename in os.listdir(dsl_folder):
@@ -257,7 +261,7 @@ def process_dsl_files(dsl_folder, output_folder, dsl_mapping_file_path):
 
             with open(input_path, 'r') as dsl_file:
                 input_dsl = dsl_file.read()
-
+            css_path="./pages.css"
             compiler.compile(input_dsl, output_html_path, css_path)
             print(f"Processed {filename} -> {output_html_path}")
 

@@ -1,0 +1,50 @@
+header{
+	flex-c{
+		logodiv{
+			text
+		}
+	}
+}
+container{
+	row{
+		div-3{
+			input
+			text-c
+		}
+		div-3{
+			paragraph
+			button-c
+		}
+	}
+	row{
+		div-6{
+			carousel
+			text
+			image
+		}
+		div-6{
+			paragraph
+			card{
+				input
+				button
+				paragraph
+			}
+		}
+	}
+}
+footer{
+	row{
+		div-6{
+			paragraph
+			text
+		}
+		div-6{
+			paragraph
+			flex{
+				text
+				button
+				image
+			}
+		}
+	}
+}

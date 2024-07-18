@@ -1,0 +1,50 @@
+header{
+	flex-sb{
+		logodiv{
+			image
+			text
+		}
+		nav{
+			navlink
+			navlink
+		}
+	}
+}
+container{
+	row{
+		div-6{
+			paragraph
+			image
+			image
+		}
+	}
+	row{
+		div-12{
+			paragraph
+			button
+		}
+	}
+	row{
+		div-3{
+			text
+			image
+		}
+		div-3{
+			paragraph
+			button-c
+		}
+	}
+}
+footer{
+	row{
+		div-6{
+			button
+			image
+			image
+		}
+		div-6{
+			text
+			image
+		}
+	}
+}

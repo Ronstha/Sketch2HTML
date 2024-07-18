@@ -1,0 +1,38 @@
+container{
+	row{
+		div-12{
+			carousel
+			button-c
+		}
+	}
+	row{
+		div-6{
+			carousel
+			input
+		}
+		div-6{
+			button-c
+			flex-r{
+				image
+				button
+				button
+			}
+		}
+	}
+}
+footer{
+	row{
+		div-3{
+			flex-sb{
+				text
+				image
+			}
+			paragraph
+		}
+		div-9{
+			table
+			button
+			image
+		}
+	}
+}
