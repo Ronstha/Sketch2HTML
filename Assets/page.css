@@ -20,8 +20,9 @@
     padding: 0px 17px;
     margin: 10px;
     height: 77px;
+    padding-bottom: 30px;
   }
-  
+
   .nav {
     /* background-color: #32cd32; */
     padding: 10px;
@@ -226,8 +227,11 @@ button.button {
   
   .footer {
     background-color: rgb(154,128,235);
-    padding: 15px 17px;
+    padding: 30px 17px;
     /* margin: 10px; */
+  }
+  .footer div{
+    margin-top: 10px;
   }
   
   /* Hide all text */

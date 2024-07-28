@@ -18,7 +18,7 @@ function random(min, max) {
   return Math.random() * (max - min) + min;
 }
 aspects = [4 / 3, 2 / 3, 3 / 2, 6 / 9, 5 / 4];
-h = random(50, 80);
+h = random(90, 120);
 try {
   document.querySelector(".header").style.height = h + "px";
   document.querySelector(".header").style.marginTop = random(20, 50) + "px";

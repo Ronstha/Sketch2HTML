@@ -57,6 +57,9 @@ def generate(node,level):
     b = rule.get('max')
     
     if b:
+        if node.key=='card' and node.parent.key=='div-3':
+            cur=cur.copy()
+            cur.pop()
         n=random.randrange(a,b+1)
         for _ in range(n):
             elm=random.choice(cur)

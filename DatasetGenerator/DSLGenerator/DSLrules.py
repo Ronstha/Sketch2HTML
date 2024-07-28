@@ -5,7 +5,7 @@ graph={
     'logodiv':['image','text'],
     'container':['row'],
     'row':['div-3','div-6','div-9','div-12'],
-    'div-3':['text','paragraph','image','card','input','button','flex'],
+    'div-3':['text','paragraph','image','card','input','button',],
     'div-6':['text','paragraph','image','card','carousel','input','button','flex'],
     'div-9':['text','paragraph','image','card','carousel','input','table','button','flex'],
     'div-12':['text','paragraph','image','card','carousel','input','table','button','flex'],
