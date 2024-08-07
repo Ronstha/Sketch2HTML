@@ -57,12 +57,18 @@ def generate(node,level):
     b = rule.get('max')
     
     if b:
+        cur=cur.copy()
         if node.key=='card' and node.parent.key=='div-3':
-            cur=cur.copy()
             cur.pop()
         n=random.randrange(a,b+1)
         for _ in range(n):
             elm=random.choice(cur)
+            # if elm=='card':
+            #     cur.remove('card')
+            if elm in ['image','carousel','table','card']:
+                for el in cur.copy():
+                    if el in ['image','carousel','table','card']:
+                        cur.remove(el)
             childNode=DSLNode(elm,node)
             res=generate(childNode,level+1)       
             if res:

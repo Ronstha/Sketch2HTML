@@ -240,7 +240,7 @@ body {
 }
   """
 
-def process_dsl_files(dsl_folder, output_folder, dsl_mapping_file_path):
+def process_dsl_files(dsl_folder,filename, output_folder, dsl_mapping_file_path):
     compiler = Compiler(dsl_mapping_file_path)
 
     # Create output folder if it doesn't exist
@@ -254,16 +254,15 @@ def process_dsl_files(dsl_folder, output_folder, dsl_mapping_file_path):
     #     css_file.write(css_content)
 
     # Process each .dsl file
-    for filename in os.listdir(dsl_folder):
-        if filename.endswith(".dsl"):
-            input_path = os.path.join(dsl_folder, filename)
-            output_html_path = os.path.join(output_folder, f"{filename[:-4]}.html")
+   
+    input_path = os.path.join(dsl_folder, filename)
+    output_html_path = os.path.join(output_folder, f"{filename[:-4]}.html")
 
-            with open(input_path, 'r') as dsl_file:
-                input_dsl = dsl_file.read()
-            css_path="./pages.css"
-            compiler.compile(input_dsl, output_html_path, css_path)
-            print(f"Processed {filename} -> {output_html_path}")
+    with open(input_path, 'r') as dsl_file:
+        input_dsl = dsl_file.read()
+    css_path="./pages.css"
+    compiler.compile(input_dsl, output_html_path, css_path)
+  
 
 # Example usage
 if __name__ == "__main__":

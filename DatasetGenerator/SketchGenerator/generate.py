@@ -4,6 +4,7 @@ import imutils
 import imagesize
 import os
 import random
+import json
 levels=[
     {
         'paragraph':np.array([193,188,192]),
@@ -46,18 +47,25 @@ def insertElement(elm,sketch,sketchpath):
                         sketch[y+i][x+j] = resizedElement[i][j]
                     except:
                         pass
+with open('assets/sketchinfo.json','r') as f:
+    sketchinfo=json.load(f)
+
 def getBestFitImage(key,rect,sketchpath):
     sketchpath=os.path.join(sketchpath,key)
     difference=[]
     x,y,w,h=rect
     aspect=w/h
-    for i in os.listdir(sketchpath):
-        impath=os.path.join(sketchpath,i)
-        iw,ih=imagesize.get(impath)
-        imageAspect=iw/ih
-        difference.append([abs(imageAspect-aspect),impath])
+    # for i in os.listdir(sketchpath):
+    #     impath=os.path.join(sketchpath,i)
+    #     iw,ih=imagesize.get(impath)
+    #     imageAspect=iw/ih
+    #     difference.append([abs(imageAspect-aspect),impath])
+    for i in sketchinfo[key]:
+  
+        imageAspect=i['w']/i['h']
+        difference.append([abs(imageAspect-aspect),i['file']])
     difference.sort(key=lambda x:x[0])
-    limit=min(len(difference),6)
+    limit=min(len(difference),5)
     return random.choice(difference[:limit])[1]
 
 def generate_sketch(imagepath,sketchpath,savepath):
