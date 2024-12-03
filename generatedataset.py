@@ -23,12 +23,13 @@ for dir in [DSL_dir,HTML_dir,SS_dir,Sketch_dir]:
         
 start=time.time()
 webdriver=WebDriver(w=1200+16,h=1700+95)
-for n in range(int(input("No of sketch="))):
+# for n in range(int(input("No of sketch="))):
+for n in range(999999):
     # if(time.time()-start>60*60*2.5):
     #     break
-    t=str(time.time()).replace('.','')
+    t=str(time.time()).replace('.','-')
     
-    t=str(n)
+    # t=str(n)
     dsl=gen()
     with open(f'{DSL_dir}/{t}.dsl','w') as f:
         f.write(dsl)

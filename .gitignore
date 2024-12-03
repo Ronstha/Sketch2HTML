@@ -2,3 +2,8 @@ __pycache__/
 *.log
 phantomjs.exe
 Outputs/
+1.html
+*.png
+*.jpg
+*.ipynb
+*.json
