@@ -40,7 +40,7 @@ while True:
     process_dsl_files(DSL_dir, t+'.dsl',HTML_dir, dsl_mapping_file_path)
     webdriver.saveScreenshot(HTML_dir,t+'.html',SS_dir)
     generate_sketch(os.path.join(SS_dir,t+'.png'),Sketch_path,os.path.join('/content/drive/MyDrive/data/sketch',t+'.png'))
-    os.remove(HTML_dir,t+'.html')
+    os.remove(os.path.join(HTML_dir,t+'.html'))
     os.remove(os.path.join(SS_dir,t+'.png'))
     os.remove(f'{DSL_dir}/{t}.dsl')
     print(f"{n} Sketch Generated {t}")
