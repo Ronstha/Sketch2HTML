@@ -3,7 +3,7 @@
 import json
 import random
 import os
-
+dsl_mapping_path='../assets/dsl_mapping.json'
 class Node:
     def __init__(self, name, parent=None):
         self.name = name
@@ -34,15 +34,43 @@ class Node:
         child_content = "".join(child.render(dsl_mapping) for child in self.children)
         result = result.replace("{}", child_content)
 
-        # Handle nodes that might have content replacement
-        if self.name in ['text', 'paragraph']:
-            result = result.replace('[]', generate_random_text())
-
-        return result
     
+        return result
+    def tojson(self):
+        root={
+            'name':'',
+            'element':self.name,
+            'nodes':[]
+        }
+        if self.name=='root':
+            root['styles']={
+                'primaryColor':'red',
+                'secondaryColor':'green'
+            }
+        if self.name=='text':
+            root['text']=get_random_text(random.randint(1,4))
+        elif self.name=='paragraph':
+            root['text']=". ".join([get_random_text(random.randint(5,10)) for _ in range(random.randint(4,10))])
+        elif self.name in ["navlink",'button']:
+            root['text']=get_random_text(random.randint(1,3))
+            root['href']='#'
+        elif self.name=="image":
+            root['url']=""
+        elif self.name=='table':
+            root['data']={}
+        elif self.name=="carousel":
+            root['images']=[]
+
+
+
+        
+        for node in self.children:
+            root['nodes'].append(node.tojson())        
+        return root
 class Compiler:
-    def __init__(self, dsl_mapping_file_path):
-        with open(dsl_mapping_file_path) as data_file:
+
+    def __init__(self):
+        with open(dsl_mapping_path) as data_file:
             self.dsl_mapping = json.load(data_file)
 
     def compile(self, input_dsl, output_html_path, output_css_path):
@@ -114,146 +142,16 @@ class Compiler:
 
         return root
 
-def generate_random_text():
-    lorem_ipsum = [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-    ]
-    return random.choice(lorem_ipsum)
-
-def generate_css():
-    return """
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -10px;
-}
-
-.col-lg-3, .col-lg-6, .col-lg-9, .col-lg-12 {
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.col-lg-3 { width: 25%; }
-.col-lg-6 { width: 50%; }
-.col-lg-9 { width: 75%; }
-.col-lg-12 { width: 100%; }
-
-.d-flex {
-    display: flex;
-}
-
-.justify-content-between {
-    justify-content: space-between;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
-.justify-content-end {
-    justify-content: flex-end;
-}
-
-.text {
-    margin: 0;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.paragraph {
-    margin: 0;
-}
-
-.card {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.img-fluid {
-    max-width: 100%;
-    height: auto;
-}
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.float-right {
-    float: right;
-}
-
-.site-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-    .col-lg-3, .col-lg-6, .col-lg-9 {
-        width: 100%;
-    }
-}
-  """
+def get_random_text(n=10):
+    paragraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+    words=paragraph.split()
+    return " ".join(random.sample(words,n))
 
 def process_dsl_files(dsl_folder,filename, output_folder, dsl_mapping_file_path):
-    compiler = Compiler(dsl_mapping_file_path)
+    compiler = Compiler()
 
-    # Create output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
-
-    # Generate CSS file
-    # css_path = os.path.join(output_folder, "styles.css")
-    # css_content = generate_css()
-    # with open(css_path, 'w') as css_file:
-    #     css_file.write(css_content)
-
-    # Process each .dsl file
    
     input_path = os.path.join(dsl_folder, filename)
     output_html_path = os.path.join(output_folder, f"{filename[:-4]}.html")
@@ -262,13 +160,14 @@ def process_dsl_files(dsl_folder,filename, output_folder, dsl_mapping_file_path)
         input_dsl = dsl_file.read()
     css_path="./pages.css"
     compiler.compile(input_dsl, output_html_path, css_path)
-  
+def dsl_to_json(dsl):
+    compiler=Compiler()
+    return compiler.parse_dsl(dsl).tojson()
 
 # Example usage
 if __name__ == "__main__":
-    dsl_mapping_file_path = "dsl_mapping.json"
+    dsl_mapping_path = "../assets/dsl_mapping.json"
     dsl_folder = "dsl"
     output_folder = "output"
-
-    process_dsl_files(dsl_folder, output_folder, dsl_mapping_file_path)
-    print("All DSL files have been processed.")
+    with open('../Outputs/DSL/1.dsl','r') as f:
+        print(dsl_to_json(f.read()))
