@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #6a11cd;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --primary-text-color: white;
+    --secondary-text-color: #2c3e50;
+    --background-color: #ecf0f1;
+    --accent-text-color: black;
+    --color: white;
+    --font-family: Times New Roman;
+    --font-size-lg: 20px;
+    --font-size-md: 16px;
+    --font-size-sm: 13px;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: var(--font-family);
+    padding: 0;
+
+}
+.root{
+    width: 100%;
+    min-height: 100vh;
+}
+body {
+    width: 100vw;
+    background-color: var(--backgrounfhd-color);
+    color: var(--secondary-text-color);
+    overflow-x: hidden;
+
+}
+.text,.text-c,.text-r{
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.navlink,.button,.button-c,.input,.button-r{
+    font-size: var(--font-size-md);
+    height: max-content;
+}
+.input{
+    outline: none;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    width: min-content;
+    min-width: 100px;
+
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    width: 100%;
+    padding: 0 var(--spacing-md);
+}
+
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    padding: var(--spacing-md); /* Increase padding for more height */
+    width: 100%;  
+    min-height: 100px; /* Ensure a minimum height for the footer */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+
+.button, .button-c, .button-r {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md); /* Increase padding */
+    font-size: 1.2rem; /* Larger font size */
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    border: none;
+    border-radius: var(--border-radius-md); /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.button:hover {
+    background-color: var(--secondary-color); /* Change color on hover */
+}
+
+.nav {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align items to the right */
+    gap: var(--spacing-sm); /* Add spacing between links */
+}
+
+.navlink {
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    color: var(--primary-text-color);
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navlink:hover {
+    background-color: var(--secondary-color); /* Hover color */
+    color: var(--secondary-text-color);
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+}
+
+
+
+
+
+.carousel {
+    width: 400px; /* Fixed width */
+    height: 250px; /* Fixed height */
+    margin: 0 auto; /* Center the carousel horizontally */
+    overflow: hidden; /* Ensure no content overflows */
+    border-radius: var(--border-radius-md); /* Optional: rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+.carousel img {
+    width: 400px; /* Match the carousel's width */
+    height: 250px; /* Match the carousel's height */
+    object-fit: cover; /* Ensure images fill the space while maintaining proportions */
+    object-position: center;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-left: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    justify-content: center;
+
+}
+.logdiv div{
+    font-weight: bold;
+    font-size: var(--font-size-lg);
+
+}
+
+
+
+/* Flexbox alignment for div containers */
+.div-3, .div-6, .div-12,.div-9{
+    display: flex;
+    justify-content: center; /* Center elements horizontally */
+    text-align: center;     /* Optional: Center-align text */
+    padding: var(--spacing-sm);          /* Add some padding for spacing */
+    gap: var(--spacing-sm);          /* Add some padding for spacing */
+    flex-wrap: wrap;
+}
+
+.div-3 {
+    flex: 0 0 calc(25% - var(--spacing-sm));
+}
+
+.div-6 {
+    flex: 0 0 calc(50% - var(--spacing-sm));
+}
+
+.div-12 {
+    flex: 0 0 100%;
+}
+.div-9 {
+    flex: 0 0 calc(70% - var(--spacing-sm));
+}
+
+
+.flex, .flex-sb, .flex-c, .flex-r {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    flex-wrap: wrap;
+    margin:0 var(--spacing-sm);
+}
+
+.flex-sb { justify-content: space-between; }
+.flex-c { justify-content: center; }
+.flex-r { flex-direction: row; }
+
+
+
+.card {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-md);
+    min-height: 120px;
+    width: 100%;
+}
+
+.image {
+    max-width: 600px;
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+}
+
+
+
+.text-c { text-align: center; }
+.text-r { text-align: right; }
+.header .text,.header .text-c,.header .text-r{
+    margin-bottom: 0;
+}
+
+.logodiv{
+    display:  flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding:5px;
+    gap: var(--spacing-md);
+}
+.paragraph{
+   font-size: var(--font-size-sm);
+   line-height: var(--line-height);
+   margin-bottom: var(--spacing-md);
+   color:var(--secondary-text-color);
+   text-align: justify;
+   word-wrap: break-word;     
+   hyphens: auto; 
+
+}
+.logodiv img{
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    max-height: 80px;
+    min-height: 30px;
+    max-width: 80px;
+    aspect-ratio: 1;
+}
+
+@media (max-width: 768px) {
+    .div-3, .div-6, .div-9 {
+        flex: 0 0 100%;
+    }
+}
+    </style>
+</head>
+<body>
+
+<div class="root">
+<header class="header">
+<div class="flex-r">
+<div class="logodiv">
+<img src="../assets/images\IMG_7392.jpg"  class="image">
+
+<div class="text">voluptate</div>
+</div>
+
+<nav class="nav">
+<a href="#" class="navlink">adipiscing</a>
+</nav>
+</div>
+</header>
+
+<div class="container">
+<div class="row">
+<div class="div-9">
+<div class="flex">
+<div class="text">incididunt enim velit</div>
+
+<div class="text">cupidatat enim sint</div>
+</div>
+
+<p class="paragraph">velit magna exercitation occaecat do Duis culpa aute. elit. Duis voluptate tempor velit incididunt Ut ullamco. amet, sunt sit laboris. consectetur nostrud et aliqua. ipsum. aliqua. officia. laboris. Duis sint reprehenderit Sed elit. qui adipiscing. exercitation quis tempor consectetur qui officia.. tempor officia. cupidatat culpa magna qui ipsum ut veniam, cillum.Excepteur. enim Duis laboris. do magna. in non voluptate sit magna Sed et. tempor consectetur velit sit sunt eiusmod</p>
+</div>
+
+<div class="div-3">
+<div class="text">reprehenderit</div>
+
+<div class="card">
+<p class="paragraph">exercitation labore in laboris. tempor. exercitation aliqua. sint nostrud velit officia. non do labore. ipsum voluptate culpa magna officia.. minim officia. dolore Duis eiusmod labore sint reprehenderit. qui proident, voluptate consectetur non. Duis culpa non tempor et occaecat eiusmod adipiscing. Lorem et non magna minim do voluptate exercitation. minim ullamco elit. tempor laboris.</p>
+
+<div class="text">magna dolore adipiscing</div>
+</div>
+
+<p class="paragraph">nostrud irure ipsum magna Duis reprehenderit. aute laboris. Ut occaecat voluptate sint aliqua. irure. veniam, consectetur dolor sint quis irure dolore. sunt tempor non consectetur reprehenderit Ut sint adipiscing. dolor velit occaecat ut laboris. aliqua. tempor reprehenderit ipsum</p>
+</div>
+</div>
+
+<div class="row">
+<div class="div-6">
+<button class="button button-c">Sed</button>
+
+<div class="card">
+<button class="button">Ut cillum.Excepteur</button>
+
+<button class="button">laboris. officia.</button>
+
+<img src="../assets/images\IMG_7311.jpg"  class="image">
+</div>
+</div>
+
+<div class="div-6">
+<button class="button button-c">esse sit</button>
+
+<div class="text">culpa</div>
+</div>
+</div>
+
+<div class="row">
+<div class="div-6">
+<div class="card">
+<button class="button">veniam,</button>
+
+<button class="button">quis aliqua.</button>
+
+<img src="../assets/images\IMG_6945.jpg"  class="image">
+</div>
+
+<input type="text" class="input" placeholder="Enter text">
+</div>
+
+<div class="div-3">
+<p class="paragraph">do dolor et sint eiusmod tempor aliqua. ipsum proident, Lorem. cupidatat amet, proident, laboris. dolor. aliqua. reprehenderit enim officia. dolore voluptate irure consectetur culpa. amet, tempor do aute veniam, incididunt adipiscing proident, in. amet, do dolor in esse occaecat non officia. Lorem</p>
+
+<img src="../assets/images\IMG_7392.jpg"  class="image">
+
+<input type="text" class="input" placeholder="Enter text">
+</div>
+</div>
+
+<div class="row">
+<div class="div-6">
+<div class="card">
+<img src="../assets/images\IMG_7316.jpg"  class="image">
+
+<input type="text" class="input" placeholder="Enter text">
+</div>
+</div>
+
+<div class="div-3">
+<div class="text">in</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
