@@ -53,8 +53,12 @@ def generate(node,level):
                 tokensCount+=1
         return True
     
+    
     a = rule.get('min')
     b = rule.get('max')
+    if node.key=='flex' and node.parent.key=='div-3':
+        b=a
+        
     
     if b:
         cur=cur.copy()
