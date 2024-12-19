@@ -3,7 +3,7 @@ __pycache__/
 phantomjs.exe
 Outputs/
 1.html
-*.png
+/*.png
 *.jpg
 *.ipynb
 *.json
