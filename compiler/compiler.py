@@ -4,7 +4,7 @@ import json
 import random
 import os
 try:
-    image_files = [f for f in os.listdir('../assets/images') if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp'))]
+    image_files = ["images/"+f for f in os.listdir('images/images') if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp'))]
 except Exception as e:
     print(f"Error fetching images: {e}")
     image_files = ["placeholder.jpg"]
@@ -164,37 +164,39 @@ class Compiler:
 
         return root
 class JSONCompiler:
-    def __init__(self):
+    def __init__(self,preview=True):
+        self.preview=preview
         with open(os.environ['assets']+"/dsl_mapping.json") as data_file:
             self.dsl_mapping = json.load(data_file)
     def compile(self,obj):
+        self.images=[]
         html_content=self.render(obj)
         css_content=self.generate_css(obj['styles'])
+        js_content=open(os.environ['assets']+"/temp.js",'r').read()
         with open(os.environ['assets']+"/temp.html",'r') as f:
-           return f.read().format(css_content=css_content,html_content=html_content)
+           return f.read().format(css_content=css_content,html_content=html_content,js_content=js_content)
     def render(self,obj):
         elm=obj['element']
         if elm=='carousel':
            
 
             images = obj['images']
-        
+            for img in images:
+                if not img.startswith('http'):
+                    self.images.append(img)
+            images=[ img if img.startswith('http') else
+                (os.environ['url'] if self.preview else "./")+img for img in images]
             # Carousel HTML template
             carousel_html = """
-            <div class="carousel-container">
-                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
+            <div class="carousel" data-id="{id}">
+                 <div class="carousel-inner">
                         {slides}
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+                    <button class="carousel-button prev">←</button>
+    <button class="carousel-button next">→</button>
+    
+    <div class="carousel-dots"></div>
+                   
             </div>
             """
 
@@ -202,30 +204,33 @@ class JSONCompiler:
             slides = ""
             for i, img in enumerate(images):
                 active_class = "active" if i == 0 else ""
-                img_path = os.path.join('../assets/images', img)
+                img_path = img
                 slides += f"""
-                <div class="carousel-item {active_class}">
-                    <img src="{img_path}" class="d-block w-100" alt="Carousel Image {i+1}">
+                <div class="carousel-slide {active_class}" >
+                    <img src="{img_path}" data-id="{obj['id']}"  alt="Carousel Image {i+1}">
                 </div>
                 """
 
             # Replace placeholder with slides
-            return carousel_html.format(slides=slides)
+            return carousel_html.format(slides=slides,id=obj['id'])
         elif elm.startswith('text') or elm.startswith('button') or elm=='paragraph':
-            return self.dsl_mapping[elm].format(
+            return self.dsl_mapping[elm].replace('>',f'data-id="{obj["id"]}" >',1).format(
                 obj['text']
             )
         elif elm=='navlink':
-            return self.dsl_mapping[elm].format(
+            return self.dsl_mapping[elm].replace('>',f'data-id="{obj["id"]}" >',1).format(
                 obj['text'],obj['href']
             )
         elif elm=='image':
-              return self.dsl_mapping[elm].format(
-                os.path.join('../assets/images', obj['url'])
+              if not obj['url'].startswith('http'):
+                    self.images.append(obj['url'])
+              return self.dsl_mapping[elm].replace('>',f'data-id="{obj["id"]}" >',1).format(
+                obj['url'] if obj['url'].startswith('http') else
+                (os.environ['url'] if self.preview else "./")+obj['url']
             )
 
         children_html = ''.join(self.render(child) for child in obj['nodes'])
-        return self.dsl_mapping[elm].format(children_html)
+        return self.dsl_mapping[elm].replace('>',f'data-id="{obj["id"]}" >',1).format(children_html)
     def generate_css(self,styles):
         
         css_vars = "\n".join([f"    --{key}: {value};" for key, value in styles.items()])

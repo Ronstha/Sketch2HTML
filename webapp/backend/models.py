@@ -12,14 +12,19 @@ class UI(Base):
       Integer, 
       ForeignKey('element.id',ondelete="CASCADE"), 
       nullable=False)
-    node=relationship('Element',backref='ui',cascade='all, delete')
+    
 class Element(Base):
     __tablename__="element"
     id=Column(Integer(),primary_key=True)
     name=Column(String(),nullable=True)
     element=Column(String(),nullable=False)
     data=Column(String())
-    parent_id = Column(Integer, ForeignKey('element.id'),nullable=True)
+    parent_id = Column(Integer, ForeignKey('element.id',ondelete='CASCADE'),nullable=True)
     parent = relationship("Element", back_populates="childrens", remote_side=[id])
-    childrens = relationship("Element", back_populates="parent")
+    childrens = relationship("Element", back_populates="parent",cascade="all, delete-orphan")
+    ui=relationship('UI',backref='node',cascade='all, delete-orphan')
 
+class Image(Base):
+  __tablename__='image'
+  id=Column(Integer,primary_key=True)
+  url=Column(String,nullable=False)

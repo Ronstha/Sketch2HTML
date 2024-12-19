@@ -30,14 +30,16 @@ body {
     font-weight: bold;
     margin-bottom: 5px;
 }
-.navlink,.button,.button-c,.input,.button-r{
+.navlink,.button,.button-c,.button-r{
     font-size: var(--font-size-md);
     height: max-content;
 }
 .input{
+    max-height: 35px;
+    font-size: var(--font-size-sm);
     outline: none;
     border-radius: var(--border-radius-md);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 8px 4px;
     width: min-content;
     min-width: 100px;
 
@@ -107,6 +109,7 @@ body {
 
 
 .carousel {
+    position: relative;
     width: 400px; /* Fixed width */
     height: 250px; /* Fixed height */
     margin: 0 auto; /* Center the carousel horizontally */
@@ -114,13 +117,86 @@ body {
     border-radius: var(--border-radius-md); /* Optional: rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
 }
-
-.carousel img {
-    width: 400px; /* Match the carousel's width */
-    height: 250px; /* Match the carousel's height */
-    object-fit: cover; /* Ensure images fill the space while maintaining proportions */
-    object-position: center;
+.carousel div{
+    user-select: none;
 }
+
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+
+  .carousel-button:hover {
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  .carousel-button.prev {
+    left: 10px;
+  }
+
+  .carousel-button.next {
+    right: 10px;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .dot.active {
+    background: white;
+  }
 
 
 .row {

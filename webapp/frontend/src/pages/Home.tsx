@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { useEffect, useRef, useState } from "react"
 import { BACKEND_URL, local_file } from "@/constant"
-import { Download, Edit, Trash2, UploadIcon } from "lucide-react"
+import { Download, Edit, Loader2, Trash2, UploadIcon } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import {
   AlertDialog,
@@ -26,6 +26,7 @@ type sketchData={
   name:string
 }
 function Home() {
+    const [loading,setLoading]=useState(false)
     const [data,setData]=useState<sketchData[]>([])
     const [id,setId]=useState<number|null>(null)
     const [open,setOpen]=useState<boolean>(false)
@@ -56,16 +57,19 @@ function Home() {
 
         const file=ref.current.files[0]
         data.append('image',file)
+        closeModal()
+        setLoading(true)
         var res=await fetch(`${BACKEND_URL}/add_data`,{
           method:"POST",
           body:data
         })
+        setLoading(false)
         if(res.status==200){
           
           res=await res.json()
           setData(data=>([...data,res.data]))
        
-          closeModal()
+         
         }
       }
 
@@ -93,7 +97,27 @@ const handleImage=(e)=>{
 }
   return (
     <>
+          {
+        loading &&
+        <div className="absolute z-50 bg-[#000000a1] w-full h-full top-0 left-0 flex items-center justify-center">
+          <div className="bg-white text-black font-bold text-4xl w-[400px] h-[400px] rounded-md shadow-lg flex flex-col items-center justify-center">
+            <div>
+            <Loader2 
+        className={`animate-spin text-blue-500 `}
+        size={100}
+      />
+            </div>
+            <div className="font-bold text-2xl">
+            Generating UI.....
+              </div>
+
+
+          </div>
+
+        </div>
+      }
     <div className="w-full h-full relative">
+
     <AlertDialog onOpenChange={setOpen} open={open}>
   <AlertDialogContent>
     <AlertDialogHeader>

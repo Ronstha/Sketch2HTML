@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --accent-color: #e74c3c;
+    --accent-text-color: #171111;
+    --background-color: #edf2ef;
+    --border-radius-lg: 12px;
+    --border-radius-md: 8px;
+    --border-radius-sm: 4px;
+    --color: white;
+    --font-family: Courier New;
+    --font-size-lg: 20px;
+    --font-size-md: 16px;
+    --font-size-sm: 13px;
+    --primary-color: #6a11cd;
+    --primary-text-color: white;
+    --secondary-color: #2ecc71;
+    --secondary-text-color: #2c3e50;
+    --spacing-lg: 2rem;
+    --spacing-md: 1.5rem;
+    --spacing-sm: 1rem;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: var(--font-family);
+    padding: 0;
+
+}
+.root{
+    width: 100%;
+    min-height: 100vh;
+}
+body {
+    width: 100vw;
+    background-color: var(--backgrounfhd-color);
+    color: var(--secondary-text-color);
+    overflow-x: hidden;
+
+}
+.text,.text-c,.text-r{
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.navlink,.button,.button-c,.button-r{
+    font-size: var(--font-size-md);
+    height: max-content;
+}
+.input{
+    max-height: 35px;
+    font-size: var(--font-size-sm);
+    outline: none;
+    border-radius: var(--border-radius-md);
+    padding: 8px 4px;
+    width: min-content;
+    min-width: 100px;
+
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    width: 100%;
+    padding: 0 var(--spacing-md);
+}
+
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    padding: var(--spacing-md); /* Increase padding for more height */
+    width: 100%;  
+    min-height: 100px; /* Ensure a minimum height for the footer */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+
+.button, .button-c, .button-r {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md); /* Increase padding */
+    font-size: 1.2rem; /* Larger font size */
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    border: none;
+    border-radius: var(--border-radius-md); /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.button:hover {
+    background-color: var(--secondary-color); /* Change color on hover */
+}
+
+.nav {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align items to the right */
+    gap: var(--spacing-sm); /* Add spacing between links */
+}
+
+.navlink {
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    color: var(--primary-text-color);
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navlink:hover {
+    background-color: var(--secondary-color); /* Hover color */
+    color: var(--secondary-text-color);
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+}
+
+
+
+
+
+.carousel {
+    width: 400px; /* Fixed width */
+    height: 250px; /* Fixed height */
+    margin: 0 auto; /* Center the carousel horizontally */
+    overflow: hidden; /* Ensure no content overflows */
+    border-radius: var(--border-radius-md); /* Optional: rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+.carousel div{
+    user-select: none;
+}
+
+.carousel img {
+    width: 400px; /* Match the carousel's width */
+    height: 250px; /* Match the carousel's height */
+    object-fit: cover; /* Ensure images fill the space while maintaining proportions */
+    object-position: center;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-left: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    justify-content: center;
+
+}
+.logdiv div{
+    font-weight: bold;
+    font-size: var(--font-size-lg);
+
+}
+
+
+
+/* Flexbox alignment for div containers */
+.div-3, .div-6, .div-12,.div-9{
+    display: flex;
+    justify-content: center; /* Center elements horizontally */
+    text-align: center;     /* Optional: Center-align text */
+    padding: var(--spacing-sm);          /* Add some padding for spacing */
+    gap: var(--spacing-sm);          /* Add some padding for spacing */
+    flex-wrap: wrap;
+}
+
+.div-3 {
+    flex: 0 0 calc(25% - var(--spacing-sm));
+}
+
+.div-6 {
+    flex: 0 0 calc(50% - var(--spacing-sm));
+}
+
+.div-12 {
+    flex: 0 0 100%;
+}
+.div-9 {
+    flex: 0 0 calc(70% - var(--spacing-sm));
+}
+
+
+.flex, .flex-sb, .flex-c, .flex-r {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    flex-wrap: wrap;
+    margin:0 var(--spacing-sm);
+}
+
+.flex-sb { justify-content: space-between; }
+.flex-c { justify-content: center; }
+.flex-r { flex-direction: row; }
+
+
+
+.card {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-md);
+    min-height: 120px;
+    width: 100%;
+}
+
+.image {
+    max-width: 600px;
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+}
+
+
+
+.text-c { text-align: center; }
+.text-r { text-align: right; }
+.header .text,.header .text-c,.header .text-r{
+    margin-bottom: 0;
+}
+
+.logodiv{
+    display:  flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding:5px;
+    gap: var(--spacing-md);
+}
+.paragraph{
+   font-size: var(--font-size-sm);
+   line-height: var(--line-height);
+   margin-bottom: var(--spacing-md);
+   color:var(--secondary-text-color);
+   text-align: justify;
+   word-wrap: break-word;     
+   hyphens: auto; 
+
+}
+.logodiv img{
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    max-height: 80px;
+    min-height: 30px;
+    max-width: 80px;
+    aspect-ratio: 1;
+}
+
+@media (max-width: 768px) {
+    .div-3, .div-6, .div-9 {
+        flex: 0 0 100%;
+    }
+}
+    </style>
+</head>
+<body>
+
+<div class="root"data-id="1" >
+<div class="container"data-id="2" >
+<div class="row"data-id="3" >
+<div class="div-3"data-id="4" >
+<div class="card"data-id="5" >
+<p class="paragraph"data-id="6" >Ut ullamco sint velit cupidatat nostrud ad. eiusmod irure et aliqua. dolor magna enim cupidatat. aute amet, dolor culpa in labore ullamco. dolor Ut aliqua. nostrud quis Sed. cillum.Excepteur sit ipsum dolor aute occaecat nostrud adipiscing non. amet, occaecat nostrud ipsum Sed ullamco et in ut. magna esse in dolor reprehenderit</p>
+</div>
+
+<p class="paragraph"data-id="7" >in magna occaecat Duis proident,. magna proident, officia. enim ad. minim do reprehenderit dolor aute Ut. officia. aute nostrud dolore cillum.Excepteur eiusmod labore</p>
+</div>
+
+<div class="div-9"data-id="8" >
+<div class="flex-sb"data-id="9" >
+            <div class="carousel" data-id="10">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        
+                <div class="carousel-item active" >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiAtXFhPZbi68HHHERicZ6dNolR8EEsylfj-lgm_BqtH1PJgn5Z1nEovw&s" data-id="10" class="d-block w-100" alt="Carousel Image 1">
+                </div>
+                
+                <div class="carousel-item " >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9APxkj0xClmrU3PpMZglHQkx446nQPG6lA&s" data-id="10" class="d-block w-100" alt="Carousel Image 2">
+                </div>
+                
+                <div class="carousel-item " >
+                    <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" data-id="10" class="d-block w-100" alt="Carousel Image 3">
+                </div>
+                
+                <div class="carousel-item " >
+                    <img src="./images/images-1734608684.821298.jpg" data-id="10" class="d-block w-100" alt="Carousel Image 4">
+                </div>
+                
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            
+<div class="text"data-id="11" >quis elit.</div>
+</div>
+
+<p class="paragraph"data-id="12" >quis occaecat do dolor labore exercitation minim. qui incididunt esse ut cillum.Excepteur veniam, exercitation. do et ullamco sit tempor. ullamco aliqua. aute cupidatat reprehenderit occaecat officia. enim. officia. cillum.Excepteur eiusmod do in exercitation sunt voluptate qui amet,. quis officia. minim velit dolore tempor ullamco</p>
+</div>
+</div>
+
+<div class="row"data-id="13" >
+<div class="div-3"data-id="14" >
+<p class="paragraph"data-id="15" >sint ipsum dolore nostrud incididunt velit aliqua.. incididunt esse nostrud tempor et ullamco amet, do elit. labore. voluptate veniam, proident, sit aute exercitation ad culpa. occaecat veniam, et cupidatat nostrud in sunt</p>
+</div>
+
+<div class="div-6"data-id="16" >
+<p class="paragraph"data-id="17" >tempor Duis irure et adipiscing Sed non voluptate in in. sit sunt aliqua. elit. do et dolore labore. do Ut in et incididunt ullamco enim labore cupidatat. aliqua. cupidatat in do Lorem Ut ut enim. veniam, adipiscing Sed do enim occaecat. proident, esse culpa dolor elit. aute consectetur qui Duis cupidatat. magna do incididunt esse elit. aliqua. culpa velit sunt. proident, nostrud ipsum laboris. cillum.Excepteur dolor consectetur. velit dolor eiusmod in sit ad Duis</p>
+</div>
+
+<div class="div-3"data-id="18" >
+<p class="paragraph"data-id="19" >This is the glory of the Nation</p>
+</div>
+</div>
+</div>
+
+<div class="row"data-id="20" >
+<div class="div-12"data-id="21" >
+<p class="paragraph"data-id="22" >cupidatat elit. et Duis minim eiusmod. irure consectetur reprehenderit cupidatat incididunt ad aliqua. velit voluptate proident,. culpa tempor incididunt in voluptate sit. ullamco consectetur elit. Ut dolor nostrud. in esse et dolore reprehenderit. aute dolor sunt esse in ipsum sit enim. irure veniam, sunt et dolor in. qui nostrud voluptate eiusmod elit. in culpa. Lorem eiusmod minim ipsum in veniam, laboris. Sed qui ullamco</p>
+
+<div class="flex-r"data-id="23" >
+<button class="button"data-id="24" >non occaecat</button>
+
+<div class="text"data-id="25" >enim</div>
+</div>
+</div>
+</div>
+
+<footer class="footer"data-id="26" >
+<div class="text"data-id="27" >All rights reserved ronish shrestha</div>
+</div>
+</footer>
+</div>
+
+</body>
+</html>

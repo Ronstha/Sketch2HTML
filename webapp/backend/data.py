@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import *
+import os
 import json
 class Db:
     def __init__(self):
@@ -31,7 +32,8 @@ class Db:
             self.session.commit()
             return {'id':ui.id,'name':ui.name}
         except Exception as e:
-            
+           
+     
             self.session.rollback()
             return {'error':'Not Found'}
 
@@ -41,13 +43,15 @@ class Db:
                 childrens=[]
             else:
                 childrens=[fillnode(n) for n in node.childrens]
-            return {
+            dat={
                 'name':node.name,
                 'id':node.id,
-                'parent':node.parent.id,
-                'childrens':childrens,
-                'data':json.loads(node.data)
+                'nodes':childrens,
+              
+                'element':node.element
             }
+            dat.update(json.loads(node.data))
+            return dat
         try:
             ui=self.session.query(UI).filter(UI.id==id).one_or_none()
             if ui==None:
@@ -57,8 +61,34 @@ class Db:
                 'id':ui.id,
                 'node':fillnode(ui.node)
             },200
-        except:
+        except Exception as e:
+          
             return {'error':'Not Found'},404
+    def add_image(self,url):
+        try:
+            img=Image(url=url)
+            self.session.add(img)
+            self.session.commit()
+            return {'id':img.id,'url':url},200
+        except:
+            
+            self.session.rollback()
+            return {"error":"Unexpected Error occured"},400
+    def remove_image(self,id):
+        try:
+            img=self.session.query(Image).filter(Image.id==id).one()
+            if(not img.url.startswith('http')):
+               try:
+                 os.remove("images/"+img.url)
+               except:
+                   pass
+            self.session.delete(img)
+            self.session.commit()
+            return {"success":True},200
+        except:
+            return {"error":"Unexpected Error occured"},400
+    def get_images(self):
+       return [{'id':i.id,'url':i.url} for i in self.session.query(Image).all()],200
     def update_ui_name(self,id,name):
         try:
             ui=self.session.query(UI).filter(UI.id==id).one()
@@ -76,13 +106,20 @@ class Db:
             self.session.commit()
             return {'success':True},200
         except:
+            
             self.session.rollback()
             return {'error':'Not Found'},404
     def delete_ui(self,id):
         try:    
-            self.session.delete(self.session.query(UI).filter(UI.id==id).one())
+            elm=self.session.query(UI).filter(UI.id==id).one()
+            node=elm.node
+            self.session.delete(elm)
+            self.session.flush()
+            self.session.delete(node)
             self.session.commit()
             return {'success':True},200
         except:
+            import traceback
+            print(traceback.format_exc())
             self.session.rollback()
             return {'error':'Not Found'},404
