@@ -219,7 +219,7 @@ class JSONCompiler:
             )
         elif elm=='navlink':
             return self.dsl_mapping[elm].replace('>',f'data-id="{obj["id"]}" >',1).format(
-                obj['text'],obj['href']
+                "#root" if self.preview else obj['href'] ,obj['text']
             )
         elif elm=='image':
               if not obj['url'].startswith('http'):

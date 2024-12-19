@@ -74,7 +74,7 @@ function Edit() {
             var res=await fetch(`${BACKEND_URL}/get_ui/${id}`,{method:"get"})
             if(res.status==200){
                 res=await res.json()
-                setHtml(res.html)
+                setHtml(res.html.replace(/<a/g,"<div").replace(/<\/a/g,"</div"))
                 setData(res.node)
                 setName(res.name)
               
@@ -83,6 +83,10 @@ function Edit() {
         })()
     },[id,count])
     const doSomething=(e)=>{
+        e.target.contentWindow.addEventListener('click',e=>{
+            e.preventDefualt()
+
+        })
         e.target.contentWindow.addEventListener('dblclick',e=>{
            setCur(byid[parseInt(e.target.dataset.id)])
         })
