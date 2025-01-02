@@ -51,7 +51,7 @@ class Compiler:
             root = self.parse_dsl(input_dsl)
             html_content = root.render(self.dsl_mapping)
             html_content+="<script src='./../../assets/script.js'></script>"
-            html_content=html_content.replace('src=""','src="./../../../assets/blank.png"')
+            html_content=html_content.replace('src=""','src="./../../assets/blank.png"')
 
             full_html = f"""
 <!DOCTYPE html>
