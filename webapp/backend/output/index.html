@@ -9,16 +9,16 @@
 
 :root {
     --accent-color: #e74c3c;
-    --accent-text-color: #171111;
-    --background-color: #edf2ef;
+    --accent-text-color: black;
+    --background-color: #ecf0f1;
     --border-radius-lg: 12px;
     --border-radius-md: 8px;
     --border-radius-sm: 4px;
-    --color: white;
-    --font-family: Courier New;
-    --font-size-lg: 20px;
+    --color: #1c1717;
+    --font-family: Arial;
+    --font-size-lg: 25px;
     --font-size-md: 16px;
-    --font-size-sm: 13px;
+    --font-size-sm: 18px;
     --primary-color: #6a11cd;
     --primary-text-color: white;
     --secondary-color: #2ecc71;
@@ -44,8 +44,8 @@
 }
 body {
     width: 100vw;
-    background-color: var(--backgrounfhd-color);
-    color: var(--secondary-text-color);
+    background-color: var(--background-color);
+    color: var(--color);
     overflow-x: hidden;
 
 }
@@ -87,7 +87,7 @@ body {
 
 
 .button, .button-c, .button-r {
-    display: inline-block;
+    display: block;
     padding: var(--spacing-sm) var(--spacing-md); /* Increase padding */
     font-size: 1.2rem; /* Larger font size */
     background-color: var(--primary-color);
@@ -100,6 +100,7 @@ body {
 
 .button:hover {
     background-color: var(--secondary-color); /* Change color on hover */
+    color: var(--secondary-text-color)
 }
 
 .nav {
@@ -177,8 +178,8 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: var(--accent-color);
+    color: var(--accent-text-color);
     padding: 16px;
     border: none;
     cursor: pointer;
@@ -188,7 +189,8 @@ body {
   }
 
   .carousel-button:hover {
-    background: rgba(0, 0, 0, 0.75);
+    background: var(--primary-color);
+    color: var(--primary-text-color);
   }
 
   .carousel-button.prev {
@@ -281,8 +283,8 @@ body {
 
 
 .card {
-    background-color: var(--secondary-color);
-    color: var(--secondary-text-color);
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
     border-radius: var(--border-radius-md);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: var(--spacing-md);
@@ -320,7 +322,6 @@ body {
    font-size: var(--font-size-sm);
    line-height: var(--line-height);
    margin-bottom: var(--spacing-md);
-   color:var(--secondary-text-color);
    text-align: justify;
    word-wrap: break-word;     
    hyphens: auto; 
@@ -345,84 +346,30 @@ body {
 </head>
 <body>
 
-<div class="root"data-id="1" >
-<div class="container"data-id="2" >
-<div class="row"data-id="3" >
-<div class="div-3"data-id="4" >
-<div class="card"data-id="5" >
-<p class="paragraph"data-id="6" >Ut ullamco sint velit cupidatat nostrud ad. eiusmod irure et aliqua. dolor magna enim cupidatat. aute amet, dolor culpa in labore ullamco. dolor Ut aliqua. nostrud quis Sed. cillum.Excepteur sit ipsum dolor aute occaecat nostrud adipiscing non. amet, occaecat nostrud ipsum Sed ullamco et in ut. magna esse in dolor reprehenderit</p>
+<div id="root" class="root"data-id="110" >
+<header class="header"data-id="111" >
+<div class="flex"data-id="112" >
+<div class="logodiv"data-id="113" >
+<img src="https://dstal.com.au/wp-content/uploads/2021/09/logoipsum.png"  class="image"data-id="114" >
 </div>
-
-<p class="paragraph"data-id="7" >in magna occaecat Duis proident,. magna proident, officia. enim ad. minim do reprehenderit dolor aute Ut. officia. aute nostrud dolore cillum.Excepteur eiusmod labore</p>
 </div>
+</header>
 
-<div class="div-9"data-id="8" >
-<div class="flex-sb"data-id="9" >
-            <div class="carousel" data-id="10">
-                 <div class="carousel-inner">
-                        
-                <div class="carousel-slide active" >
-                    <img src="./images/images-1734608684.821298.jpg" data-id="10"  alt="Carousel Image 1">
-                </div>
-                
-                <div class="carousel-slide " >
-                    <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" data-id="10"  alt="Carousel Image 2">
-                </div>
-                
-                <div class="carousel-slide " >
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9APxkj0xClmrU3PpMZglHQkx446nQPG6lA&s" data-id="10"  alt="Carousel Image 3">
-                </div>
-                
-                <div class="carousel-slide " >
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiAtXFhPZbi68HHHERicZ6dNolR8EEsylfj-lgm_BqtH1PJgn5Z1nEovw&s" data-id="10"  alt="Carousel Image 4">
-                </div>
-                
-                    </div>
-                    <button class="carousel-button prev">←</button>
-    <button class="carousel-button next">→</button>
-    
-    <div class="carousel-dots"></div>
-                   
-            </div>
-            
-<div class="text"data-id="11" >quis elit.</div>
-</div>
-
-<p class="paragraph"data-id="12" >quis occaecat do dolor labore exercitation minim. qui incididunt esse ut cillum.Excepteur veniam, exercitation. do et ullamco sit tempor. ullamco aliqua. aute cupidatat reprehenderit occaecat officia. enim. officia. cillum.Excepteur eiusmod do in exercitation sunt voluptate qui amet,. quis officia. minim velit dolore tempor ullamco</p>
+<div class="container"data-id="115" >
+<div class="row"data-id="116" >
+<div class="div-6"data-id="117" >
+<img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"  class="image"data-id="118" >
 </div>
 </div>
 
-<div class="row"data-id="13" >
-<div class="div-3"data-id="14" >
-<p class="paragraph"data-id="15" >sint ipsum dolore nostrud incididunt velit aliqua.. incididunt esse nostrud tempor et ullamco amet, do elit. labore. voluptate veniam, proident, sit aute exercitation ad culpa. occaecat veniam, et cupidatat nostrud in sunt</p>
-</div>
+<div class="row"data-id="119" >
+<div class="div-12"data-id="120" >
+<div class="text"data-id="121" >About Us</div>
 
-<div class="div-6"data-id="16" >
-<p class="paragraph"data-id="17" >tempor Duis irure et adipiscing Sed non voluptate in in. sit sunt aliqua. elit. do et dolore labore. do Ut in et incididunt ullamco enim labore cupidatat. aliqua. cupidatat in do Lorem Ut ut enim. veniam, adipiscing Sed do enim occaecat. proident, esse culpa dolor elit. aute consectetur qui Duis cupidatat. magna do incididunt esse elit. aliqua. culpa velit sunt. proident, nostrud ipsum laboris. cillum.Excepteur dolor consectetur. velit dolor eiusmod in sit ad Duis</p>
-</div>
-
-<div class="div-3"data-id="18" >
-<p class="paragraph"data-id="19" >This is the glory of the Nation</p>
+<p class="paragraph"data-id="122" >We are a forward-thinking IT company dedicated to providing innovative technology solutions that empower businesses to thrive in a rapidly evolving digital landscape. With a focus on quality, reliability, and customer satisfaction, we offer a wide range of services including software development, IT consulting, cloud solutions, cybersecurity, and data management. Our team of experienced professionals works closely with clients to understand their unique needs and deliver tailored solutions that drive growth, improve efficiency, and enhance operational performance. Committed to continuous innovation, we help organizations stay competitive in the digital age, ensuring long-term success and sustainable progress.</p>
 </div>
 </div>
 </div>
-
-<div class="row"data-id="20" >
-<div class="div-12"data-id="21" >
-<p class="paragraph"data-id="22" >cupidatat elit. et Duis minim eiusmod. irure consectetur reprehenderit cupidatat incididunt ad aliqua. velit voluptate proident,. culpa tempor incididunt in voluptate sit. ullamco consectetur elit. Ut dolor nostrud. in esse et dolore reprehenderit. aute dolor sunt esse in ipsum sit enim. irure veniam, sunt et dolor in. qui nostrud voluptate eiusmod elit. in culpa. Lorem eiusmod minim ipsum in veniam, laboris. Sed qui ullamco</p>
-
-<div class="flex-r"data-id="23" >
-<button class="button"data-id="24" >non occaecat</button>
-
-<div class="text"data-id="25" >enim</div>
-</div>
-</div>
-</div>
-
-<footer class="footer"data-id="26" >
-<div class="text"data-id="27" >All rights reserved ronish shrestha</div>
-</div>
-</footer>
 </div>
 
 
@@ -479,9 +426,12 @@ body {
         this.goToSlide(prevIndex);
       }
     }
-      document.addEventListener('DOMContentLoaded', () => {
-      const carousel = new Carousel(document.querySelector('.carousel'));
-    });
+   
+    setTimeout(()=>{
+        document.querySelectorAll('.carousel').forEach(car=>{
+            new Carousel(car)
+        })
+    },1000)
 
 
 

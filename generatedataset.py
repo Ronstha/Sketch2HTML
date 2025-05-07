@@ -24,7 +24,9 @@ for dir in [DSL_dir,HTML_dir,SS_dir,Sketch_dir]:
 start=time.time()
 webdriver=WebDriver(w=1200+16,h=1700+95)
 # for n in range(int(input("No of sketch="))):
-for n in range(999999):
+n=0
+while True:
+    n+=1
     # if(time.time()-start>60*60*2.5):
     #     break
     t=str(time.time()).replace('.','-')
@@ -33,8 +35,13 @@ for n in range(999999):
     dsl=gen()
     with open(f'{DSL_dir}/{t}.dsl','w') as f:
         f.write(dsl)
+    with open(f'/content/drive/MyDrive/data/dsl/{t}.dsl','w') as f:
+        f.write(dsl)
     process_dsl_files(DSL_dir, t+'.dsl',HTML_dir, dsl_mapping_file_path)
     webdriver.saveScreenshot(HTML_dir,t+'.html',SS_dir)
-    generate_sketch(os.path.join(SS_dir,t+'.png'),Sketch_path,os.path.join(Sketch_dir,t+'.png'))
+    generate_sketch(os.path.join(SS_dir,t+'.png'),Sketch_path,os.path.join('/content/drive/MyDrive/data/sketch',t+'.png'))
+    os.remove(os.path.join(HTML_dir,t+'.html'))
+    os.remove(os.path.join(SS_dir,t+'.png'))
+    os.remove(f'{DSL_dir}/{t}.dsl')
     print(f"{n} Sketch Generated {t}")
 webdriver.quit()

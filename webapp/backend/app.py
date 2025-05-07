@@ -37,12 +37,13 @@ def add_data():
         file.save('images/sketch/'+name+'.png')
        
         data={'success':True,'data': db.create_ui(compiler.parse_dsl(predict('images/sketch/'+name+'.png')).tojson())}
-        # f=open(f'../../outputs/dsl/{random.randint(1,100)}.dsl','r')
+        # f=open(f'../1.dsl','r')
         # data={'success':True,'data': db.create_ui(compiler.parse_dsl(f.read()).tojson())}
         shutil.move('images/sketch/'+name+'.png','images/sketch/'+str(data['data']['id'])+'.png')
         return jsonify(data),200
     except Exception as e:
-    
+        import traceback
+        print(traceback.format_exc())
         return jsonify({'error': 'Processing Error'}), 400
 
 @app.route('/add_image/<int:method>',methods=['POST'])

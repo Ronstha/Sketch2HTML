@@ -9,7 +9,7 @@ from tensorflow import keras
 from tensorflow.keras import layers 
 from PIL import Image
 MAX_SEQ_LEN=120
-input_shape=(850,600,1)
+input_shape=(848,608,1)
 tokens=[
     '<PAD>',
     '{',
@@ -180,34 +180,35 @@ class ConvolutionalTokenizer(layers.Layer):
 def load_image(im):
        
         thresh= cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 41, 21)
-        kernel = np.ones((2,2), np.uint8)
+        # kernel = np.ones((2,2), np.uint8)
         # thresh=cv2.erode(thresh,kernel)
         # thresh=cv2.dilate(thresh,kernel)
-        thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
+        # thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
         coords=cv2.findNonZero(thresh)
         x, y, w, h = cv2.boundingRect(coords)
-        img=thresh[:y+h,:]
-        h,w=img.shape
-        width=600
+        im=im[y:y+h,x:x+w]
+        h,w=im.shape
+        width=608
         height=math.ceil((h/w)*width)
-        if height>850:
-            height=850
+        if height>848:
+            height=848
             width=math.ceil((w/h)*height)
             
-        resized=cv2.resize(img,(width,height),interpolation=cv2.INTER_AREA)
-        resized[resized>15]=255
-        resized[resized!=255]=0
+        resized=cv2.resize(im,(width,height),interpolation=cv2.INTER_AREA)
+        # resized[resized>15]=255
+        # resized[resized!=255]=0
         h,w=resized.shape
         oset=0
-        if width<600:
-            oset=(600-width)//2
-        image=np.zeros((850,600))
+        if width<608:
+            oset=(608-width)//2
+        image=np.zeros((848,608))
         image[:h,oset:w+oset]=resized
         
         # resized=cv2.resize(im,(input_shape[1],input_shape[0]),interpolation=cv2.INTER_AREA)
         # _,thresh=cv2.threshold(resized,254,255,cv2.THRESH_BINARY_INV)
         image = image.astype(np.float32)
         image /= 255
+        image = np.expand_dims(image, axis=-1)
         
         return image
 model=tf.keras.models.load_model('model.h5',custom_objects={"ConvolutionalTokenizer":ConvolutionalTokenizer,'masked_loss':masked_loss,'masked_accuracy':masked_accuracy})

@@ -55,7 +55,7 @@ class Node:
         'secondary-text-color': '#2c3e50',
         'background-color': '#ecf0f1',
                 'accent-text-color':'black',
-                'color':'white',
+                'color':'black',
                 'font-family':'Times New Roman',
                 'font-size-lg':'20px',
                 'font-size-md':'16px',
@@ -81,7 +81,7 @@ class Node:
         elif self.name=='table':
             root['data']={}
         elif self.name=="carousel":
-            root['images']=random.sample(image_files,3)
+            root['images']=[random.choice(image_files)]
 
 
 
